@@ -1,0 +1,66 @@
+.footer {
+  padding: 60px 0;
+  background-color: #6cb9ab;
+  color: #ffffff;
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    justify-content: space-between;
+    gap: 38px;
+  }
+
+  &__nav {
+    margin-bottom: 42px;
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+
+    &-link:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__info {
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  &__copyright {
+    font-size: 16px;
+    margin-bottom: 17px;
+  }
+
+  &__developer {
+    &-link:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__email {
+    display: inline-block;
+    margin-bottom: 16px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #ffffff;
+
+    &-icon {
+      &:hover {
+        color: #f0f0f0;
+      }
+    }
+  }
+}

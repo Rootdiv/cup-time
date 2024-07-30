@@ -1,0 +1,46 @@
+.header {
+  width: 100%;
+  padding: 0 24px;
+  border-radius: 6px;
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ffffff;
+
+  &__container {
+    max-width: 1392px;
+    backdrop-filter: blur(60px);
+    background-color: rgba(108, 185, 171, 0.7);
+    padding: 12px 46px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo-link {
+    font-size: 0;
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+
+    &-link:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__cart-link {
+    width: 28px;
+    height: 28px;
+    color: #64099b;
+    font-size: 12px;
+    background-image: url('/image/bag.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    padding: 10px 4px 3px;
+  }
+}
