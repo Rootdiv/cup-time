@@ -1,5 +1,3 @@
-import './header.scss';
-
 export const Header = () => (
   <header className="header">
     <div className="container header__container">
@@ -36,6 +34,11 @@ export const Header = () => (
         </ul>
       </nav>
       <a className="header__cart-link">6</a>
+      <div className="header__mobile-menu">
+        <span className="header__mobile-line"></span>
+        <span className="header__mobile-line"></span>
+        <span className="header__mobile-line"></span>
+      </div>
     </div>
   </header>
 );
