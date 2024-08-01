@@ -1,12 +1,25 @@
 .order {
   padding: 50px 0 100px;
 
+  @media (max-width: 940px) {
+    padding: 30px 0 80px;
+  }
+
+  @media (max-width: 660px) {
+    padding-bottom: 60px;
+  }
+
   &__title {
     font-weight: 400;
     font-size: 54px;
     line-height: 1.1;
     color: #64099b;
     margin-bottom: 32px;
+
+    @media (max-width: 940px) {
+      font-size: 36px;
+      margin-bottom: 24px;
+    }
   }
 
   &__form {
@@ -14,6 +27,14 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     max-width: 640px;
+
+    @media (max-width: 940px) {
+      max-width: unset;
+    }
+
+    @media (max-width: 660px) {
+      gap: 8px;
+    }
   }
 
   &__input {
@@ -38,6 +59,10 @@
     &_address {
       grid-column: 1 / -1;
     }
+
+    @media (max-width: 660px) {
+      grid-column: 1 / -1;
+    }
   }
 
   &__payment {
@@ -47,6 +72,10 @@
     &-title {
       padding-top: 12px;
       margin-bottom: 12px;
+
+      @media (max-width: 940px) {
+        padding-top: 4px;
+      }
     }
 
     &-label {
