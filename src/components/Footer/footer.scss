@@ -11,6 +11,7 @@
 
     @media (max-width: 660px) {
       grid-template-columns: 1fr;
+      gap: 40px;
     }
   }
 
@@ -56,6 +57,10 @@
 
     @media (max-width: 940px) {
       font-size: 12px;
+    }
+
+    @media (max-width: 660px) {
+      order: 1;
     }
   }
 

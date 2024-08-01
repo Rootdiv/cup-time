@@ -5,6 +5,10 @@
     padding: 80px 0;
   }
 
+  @media (max-width: 660px) {
+    padding: 60px 0;
+  }
+
   &__title {
     font-size: 54px;
     line-height: 1.1;
@@ -24,6 +28,11 @@
     @media (max-width: 940px) {
       grid-template-columns: repeat(auto-fill, minmax(217px, 1fr));
       gap: 16px;
+    }
+
+    @media (max-width: 660px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
     }
   }
 }

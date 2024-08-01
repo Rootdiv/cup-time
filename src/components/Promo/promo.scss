@@ -24,8 +24,8 @@
 
     @media (max-width: 660px) {
       padding-top: 90px;
-      padding-bottom: 340px;
-      background-image: url('/image/bg-image-320.png');
+      padding-bottom: 250px;
+      background-size: 145px;
       background-position: center bottom;
     }
   }
@@ -50,6 +50,7 @@
 
     @media (max-width: 660px) {
       font-size: 40px;
+      max-width: 350px;
       margin-bottom: 24px;
     }
   }
