@@ -1,16 +1,36 @@
 import './goods.scss';
 import { Product } from '@/components/Product/Product';
-import { goodsArr } from '@/goodsArr';
+import { useGoods } from '@/context/ProductContext';
+import { useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
-export const Goods = () => (
-  <section className="goods">
-    <div className="container">
-      <h2 className="goods__title">Чай</h2>
-      <ul className="goods__list">
-        {goodsArr.map(product => (
-          <Product key={product.id} {...product} />
-        ))}
-      </ul>
-    </div>
-  </section>
-);
+const goodsTitle = {
+  tea: 'Чай',
+  coffee: 'Кофе',
+  teapots: 'Чайники',
+  cezves: 'Турки',
+  other: 'Прочее',
+};
+
+export const Goods = () => {
+  const [searchParams] = useSearchParams();
+  const { goods, setCategory } = useGoods();
+  const category = searchParams.get('category');
+
+  useEffect(() => {
+    setCategory(category);
+  }, [category, setCategory]);
+
+  return (
+    <section className="goods">
+      <div className="container">
+        <h2 className="goods__title">{goodsTitle[category]}</h2>
+        <ul className="goods__list">
+          {goods.map(product => (
+            <Product key={product.id} data={product} />
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+};

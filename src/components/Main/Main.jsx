@@ -2,13 +2,14 @@ import { Cart } from '@/components/Cart/Cart';
 import { Goods } from '@/components/Goods/Goods';
 import { Order } from '@/components/Order/Order';
 import { Promo } from '@/components/Promo/Promo';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 export const Main = () => (
   <main className="main">
     <Routes>
+      <Route path="/" element={<Navigate to="/products?category=tea" />} />
       <Route
-        path="/"
+        path="/products"
         element={
           <>
             <Promo />
