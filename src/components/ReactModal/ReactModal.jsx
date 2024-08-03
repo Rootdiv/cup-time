@@ -1,5 +1,7 @@
 import './modal.scss';
 import { API_URL } from '@/const';
+import { useCart } from '@/context/CartContext';
+import { useState } from 'react';
 import ReactModal from 'react-modal';
 
 const customStyles = {
@@ -19,9 +21,28 @@ const customStyles = {
 ReactModal.setAppElement('#root');
 
 export const ProductModal = ({ isOpen, onRequestClose, data }) => {
+  const [quantity, setQuantity] = useState(1);
+  const { addToCart } = useCart();
+
   if (!data) {
     return null;
   }
+
+  const handleDecrement = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
+  const handleIncrement = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const handleAddToCart = () => {
+    addToCart(data, quantity);
+    onRequestClose();
+  };
+
   return (
     <ReactModal
       isOpen={isOpen}
@@ -47,13 +68,15 @@ export const ProductModal = ({ isOpen, onRequestClose, data }) => {
             <div className="modal__quantity">
               <button
                 type="button"
-                className="modal__quantity-btn modal__quantity-btn_minus"></button>
-              <input type="number" className="modal__quantity-count" defaultValue={1} />
+                className="modal__quantity-btn modal__quantity-btn_minus"
+                onClick={handleDecrement}></button>
+              <input type="number" className="modal__quantity-count" value={quantity} readOnly />
               <button
                 type="button"
-                className="modal__quantity-btn modal__quantity-btn_plus"></button>
+                className="modal__quantity-btn modal__quantity-btn_plus"
+                onClick={handleIncrement}></button>
             </div>
-            <button type="button" className="modal__cart-add">
+            <button type="button" className="modal__cart-add" onClick={handleAddToCart}>
               Добавить
             </button>
           </div>

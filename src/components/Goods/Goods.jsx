@@ -1,3 +1,4 @@
+import { SkeletonLoader } from '@/components/SkeletonLoader/SkeletonLoader';
 import './goods.scss';
 import { Product } from '@/components/Product/Product';
 import { useGoods } from '@/context/ProductContext';
@@ -26,9 +27,11 @@ export const Goods = () => {
       <div className="container">
         <h2 className="goods__title">{goodsTitle[category]}</h2>
         <ul className="goods__list">
-          {goods.map(product => (
-            <Product key={product.id} data={product} />
-          ))}
+          {goods.length ? (
+            goods.map(product => <Product key={product.id} data={product} />)
+          ) : (
+            <SkeletonLoader />
+          )}
         </ul>
       </div>
     </section>
