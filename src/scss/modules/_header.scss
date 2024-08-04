@@ -50,10 +50,19 @@
   &__nav {
     @media (max-width: 660px) {
       display: none;
-      position: absolute;
-      top: 0;
-      width: 100%;
-      background-color: #6cb9ab;
+    }
+
+    &_active {
+      @media (max-width: 660px) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        overflow: hidden;
+        inset: 0;
+        height: 100vh;
+        background-color: #6cb9ab;
+      }
     }
   }
 
@@ -100,6 +109,37 @@
 
     @media (max-width: 660px) {
       margin-left: auto;
+    }
+  }
+
+  &__control {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__burger {
+    display: none;
+
+    @media (max-width: 660px) {
+      display: block;
+      width: 28px;
+      height: 28px;
+      border: none;
+    }
+  }
+
+  &__close-btn {
+    display: none;
+
+    @media (max-width: 660px) {
+      position: absolute;
+      top: 20px;
+      right: 16px;
+      display: block;
+      width: 28px;
+      height: 28px;
+      border: none;
     }
   }
 
