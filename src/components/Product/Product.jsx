@@ -1,10 +1,14 @@
 import './product.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { API_URL } from '@/const';
 import { ProductModal } from '@/components/ReactModal/ReactModal';
 
 export const Product = ({ data }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = modalIsOpen ? 'hidden' : 'auto';
+  }, [modalIsOpen]);
 
   const openModal = event => {
     event.preventDefault();

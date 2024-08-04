@@ -7,7 +7,7 @@ import { useSearchParams } from 'react-router-dom';
 
 export const Goods = () => {
   const [searchParams] = useSearchParams();
-  const { goods, setCategory, categories } = useGoods();
+  const { goods, setCategory, categories, goodsRef } = useGoods();
   const category = searchParams.get('category');
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export const Goods = () => {
   const categoryTitle = categories[category] || 'Товары';
 
   return (
-    <section className="goods">
+    <section className="goods" ref={goodsRef}>
       <div className="container">
         <h2 className="goods__title">{categoryTitle}</h2>
         <ul className="goods__list">

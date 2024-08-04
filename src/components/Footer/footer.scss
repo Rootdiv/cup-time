@@ -17,6 +17,10 @@
 
   &__nav {
     margin-bottom: 42px;
+
+    @media (max-width: 660px) {
+      margin-bottom: 0;
+    }
   }
 
   &__menu {
@@ -39,6 +43,10 @@
     }
 
     &-link {
+      &.active {
+        color: #64099b;
+      }
+
       @media (max-width: 940px) {
         font-size: 16px;
       }
@@ -96,10 +104,26 @@
     align-items: center;
     gap: 12px;
     color: #ffffff;
+    transition: color 0.3s ease-in-out;
+
+    &-item {
+      line-height: 0;
+    }
+
+    &-link {
+      display: inline-block;
+      border-radius: 6px;
+      outline: none;
+
+      &:focus-visible {
+        outline: 2px solid #64099b;
+        outline-offset: 2px;
+      }
+    }
 
     &-icon {
       &:hover {
-        color: #f0f0f0;
+        color: #64099b;
       }
     }
   }

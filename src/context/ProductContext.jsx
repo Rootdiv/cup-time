@@ -1,11 +1,12 @@
 import { API_URL } from '@/const';
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useRef, useState } from 'react';
 
 const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
   const [goods, setGoods] = useState([]);
   const [category, setCategory] = useState('');
+  const goodsRef = useRef(null);
 
   const categories = {
     tea: 'Чай',
@@ -34,7 +35,7 @@ export const ProductProvider = ({ children }) => {
   }, [category]);
 
   return (
-    <ProductContext.Provider value={{ goods, setCategory, categories }}>
+    <ProductContext.Provider value={{ goods, setCategory, categories, goodsRef }}>
       {children}
     </ProductContext.Provider>
   );
