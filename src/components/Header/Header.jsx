@@ -1,5 +1,6 @@
 import { MenuList } from '@/components/MenuList/MenuList';
 import { useCart } from '@/context/CartContext';
+import style from './Header.module.scss';
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -21,16 +22,16 @@ export const Header = () => {
   };
 
   return (
-    <header className="header">
-      <div className="container header__container">
-        <Link to="/" className="header__logo-link">
-          <img src="image/logo.svg" alt="Логотип Cup Time" className="header__logo" />
+    <header className={style.header}>
+      <div className="container" id={style.container}>
+        <Link to="/" className={style.logoLink}>
+          <img src="image/logo.svg" alt="Логотип Cup Time" className={style.logo} />
         </Link>
-        <nav className={clsx('header__nav', { header__nav_active: isOpenMenu })}>
-          <MenuList classNameBase="header" onClick={closeMenu} />
+        <nav className={clsx(style.nav, { [style.navActive]: isOpenMenu })}>
+          <MenuList onClick={closeMenu} />
           <button
             type="button"
-            className="header__close-btn"
+            className={style.closeBtn}
             aria-label="Закрыть меню"
             onClick={closeMenu}>
             <svg
@@ -44,13 +45,13 @@ export const Header = () => {
             </svg>
           </button>
         </nav>
-        <div className="header__control">
-          <Link to="/cart" className="header__cart-link">
+        <div className={style.control}>
+          <Link to="/cart" className={style.cartLink}>
             {cart?.length || 0}
           </Link>
           <button
             type="button"
-            className="header__burger"
+            className={style.burger}
             aria-label="Открыть меню"
             onClick={openMenu}>
             <svg

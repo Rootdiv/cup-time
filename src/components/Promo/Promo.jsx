@@ -1,4 +1,4 @@
-import './promo.scss';
+import style from './Promo.module.scss';
 import { Link, useSearchParams } from 'react-router-dom';
 
 export const Promo = () => {
@@ -6,12 +6,12 @@ export const Promo = () => {
   const category = searchParams.get('category');
 
   return (
-    <section className="promo">
+    <section className={style.promo}>
       <div className="container">
-        <div className="promo__container">
-          <h1 className="promo__title">Попробуй новый вкус Арабики</h1>
+        <div className={style.container}>
+          <h1 className={style.title}>Попробуй новый вкус Арабики</h1>
           {category !== 'coffee' && (
-            <Link to="/products?category=coffee" className="promo__link">
+            <Link to="/products?category=coffee" className={style.link}>
               Перейти к кофе
             </Link>
           )}

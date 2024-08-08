@@ -1,0 +1,29 @@
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+
+  @media (max-width: 940px) {
+    gap: 24px;
+  }
+
+  @media (max-width: 660px) {
+    flex-direction: column;
+    gap: 16px;
+    margin: 50px auto;
+  }
+
+  &Link {
+    &.active {
+      color: #64099b;
+    }
+
+    @media (max-width: 940px) {
+      font-size: 16px;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

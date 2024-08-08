@@ -1,0 +1,143 @@
+.modal {
+  position: relative;
+  max-width: 744px;
+  width: 100%;
+  margin: auto;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #f2f9f7;
+  display: flex;
+
+  @media (max-width: 940px) {
+    max-width: 524px;
+  }
+
+  @media (max-width: 660px) {
+    flex-direction: column;
+    max-width: 290px;
+  }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  overflow-y: auto;
+
+  @media (max-width: 660px) {
+    padding: 15px;
+  }
+}
+
+.image {
+  width: 45%;
+  object-fit: cover;
+
+  @media (max-width: 660px) {
+    width: 100%;
+  }
+}
+
+.content {
+  padding: 40px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  @media (max-width: 940px) {
+    padding: 24px 24px 16px;
+    gap: 31px;
+  }
+
+  @media (max-width: 660px) {
+    padding: 16px;
+  }
+}
+
+.title {
+  font-weight: 400;
+  font-size: 24px;
+  margin-bottom: 12px;
+
+  @media (max-width: 940px) {
+    font-size: 20px;
+    margin-right: 24px;
+  }
+
+  @media (max-width: 660px) {
+    margin-right: 0;
+  }
+}
+
+.price {
+  @media (max-width: 940px) {
+    font-size: 16px;
+  }
+}
+
+.additional {
+  font-size: 16px;
+
+  @media (max-width: 940px) {
+    font-size: 12px;
+  }
+
+  &List {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &Field {
+    color: #b8b8b8;
+  }
+}
+
+.cart {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 34px;
+
+  &Add {
+    border: 1px solid #64099b;
+    border-radius: 4px;
+    padding: 16px 24px;
+    color: #64099b;
+    outline: none;
+
+    &:active,
+    &:focus-visible {
+      border-color: #6cb9ab;
+      color: #6cb9ab;
+    }
+
+    &:hover {
+      border-color: #7308b5;
+    }
+
+    &:disabled {
+      opacity: 50%;
+    }
+
+    @media (max-width: 940px) {
+      padding: 12px 18px;
+    }
+  }
+}
+
+.close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  background-image: url('/image/close.svg');
+  border: none;
+
+  @media (max-width: 660px) {
+    top: 16px;
+    right: 16px;
+  }
+}

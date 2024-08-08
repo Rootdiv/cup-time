@@ -1,4 +1,5 @@
-import './cart.scss';
+import style from './Cart.module.scss';
+import styleModal from './ModalCart.module.scss';
 import { CartItem } from '@/components/CartItem/CartItem';
 import { useCart } from '@/context/CartContext';
 import { useOrder } from '@/context/OrderContext';
@@ -56,22 +57,22 @@ export const Cart = () => {
   };
 
   return (
-    <section className="cart">
-      <div className="container cart__container">
-        <h2 className="cart__title">Корзина ({cart?.length || 0})</h2>
-        <ul className="cart__items">
+    <section className={style.cart}>
+      <div className={`container ${style.container}`}>
+        <h2 className={style.title}>Корзина ({cart?.length || 0})</h2>
+        <ul className={style.items}>
           {cart && cart.length ? (
             cart.map(product => <CartItem key={product.id} {...product} />)
           ) : (
-            <p className="cart__empty">В корзине товаров нет</p>
+            <p className={style.empty}>В корзине товаров нет</p>
           )}
         </ul>
-        <div className="cart__summary">
-          <h3 className="cart__summary-title">Итого:</h3>
-          <p className="cart__total">{totalPrice}&nbsp;&#8381;</p>
+        <div className={style.summary}>
+          <h3 className={style.summaryTitle}>Итого:</h3>
+          <p className={style.total}>{totalPrice}&nbsp;&#8381;</p>
           <button
             type="button"
-            className="cart__order-btn"
+            className={style.orderBtn}
             disabled={!cart?.length}
             onClick={handleSubmit}>
             Заказать
@@ -79,11 +80,11 @@ export const Cart = () => {
         </div>
       </div>
       <ReactModal
-        className="modal-cart"
-        overlayClassName="modal-cart__overlay"
+        className={styleModal.modal}
+        overlayClassName={styleModal.overlay}
         onRequestClose={closeModal}
         isOpen={modalIsOpen}>
-        <h2 className="modal-cart__title">
+        <h2 className={styleModal.title}>
           {orderStatus === 'success' ? (
             <span>
               Заказ успешно отправлен!
@@ -94,7 +95,7 @@ export const Cart = () => {
             'Произошла ошибка при отправке заказа'
           )}
         </h2>
-        <button type="button" className="modal-cart__close" onClick={closeModal}>
+        <button type="button" className={styleModal.close} onClick={closeModal}>
           Закрыть
         </button>
       </ReactModal>

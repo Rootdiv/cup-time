@@ -1,4 +1,4 @@
-import './order.scss';
+import style from './Order.module.scss';
 import { useOrder } from '@/context/OrderContext';
 
 export const Order = () => {
@@ -9,15 +9,15 @@ export const Order = () => {
   };
 
   return (
-    <section className="order">
+    <section className={style.order}>
       <div className="container">
-        <h3 className="order__title">Доставка</h3>
-        <form className="order__form">
+        <h3 className={style.title}>Доставка</h3>
+        <form className={style.form}>
           <input
             type="text"
             name="name"
             placeholder="Имя"
-            className="order__input"
+            className={style.input}
             value={orderDetails.name}
             onChange={handleChange}
             required
@@ -26,7 +26,7 @@ export const Order = () => {
             type="text"
             name="phone"
             placeholder="Телефон"
-            className="order__input"
+            className={style.input}
             value={orderDetails.phone}
             onChange={handleChange}
             required
@@ -35,31 +35,31 @@ export const Order = () => {
             type="text"
             name="address"
             placeholder="Адрес"
-            className="order__input order__input_address"
+            className={`${style.input} ${style.inputAddress}`}
             value={orderDetails.address}
             onChange={handleChange}
             required
           />
-          <fieldset className="order__payment">
-            <legend className="order__payment-title">Оплата:</legend>
-            <label className="order__payment-label">
+          <fieldset className={style.payment}>
+            <legend className={style.paymentTitle}>Оплата:</legend>
+            <label className={style.paymentLabel}>
               <input
                 type="radio"
                 name="payment"
                 value="card"
-                className="order__radio"
+                className={style.radio}
                 checked={orderDetails.payment === 'card'}
                 onChange={handleChange}
                 required
               />
               Картой
             </label>
-            <label className="order__payment-label">
+            <label className={style.paymentLabel}>
               <input
                 type="radio"
                 name="payment"
                 value="cash"
-                className="order__radio"
+                className={style.radio}
                 checked={orderDetails.payment === 'cash'}
                 onChange={handleChange}
                 required

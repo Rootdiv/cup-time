@@ -1,4 +1,5 @@
-import './modal.scss';
+import { Quantity } from '@/components/Quantity/Quantity';
+import style from './ReactModal.module.scss';
 import { API_URL } from '@/const';
 import { useCart } from '@/context/CartContext';
 import { useState } from 'react';
@@ -33,41 +34,35 @@ export const ProductModal = ({ isOpen, onRequestClose, data }) => {
     <ReactModal
       isOpen={isOpen}
       onRequestClose={onRequestClose}
-      className="modal"
-      overlayClassName="modal__overlay"
+      className={style.modal}
+      overlayClassName={style.overlay}
       contentLabel={`Товар ${data.title}`}>
-      <img src={`${API_URL}${data.img}`} alt={data.title} className="modal__image" />
-      <div className="modal__content">
+      <img src={`${API_URL}${data.img}`} alt={data.title} className={style.image} />
+      <div className={style.content}>
         <div className="info">
-          <h2 className="modal__title">{data.title}</h2>
-          <p className="modal__price">{data.price}&nbsp;&#8381;</p>
+          <h2 className={style.title}>{data.title}</h2>
+          <p className={style.price}>{data.price}&nbsp;&#8381;</p>
         </div>
-        <ul className="modal__additional">
+        <ul className={style.additional}>
           {Object.entries(data.additional).map(([key, value]) => (
-            <li className="modal__additional-list" key={key}>
-              <span className="modal__additional-field">{key}:</span>
-              <span className="modal__additional-value">{value}</span>
+            <li className={style.additionalList} key={key}>
+              <span className={style.additionalField}>{key}:</span>
+              <span className={style.additionalValue}>{value}</span>
             </li>
           ))}
         </ul>
-        <div className="modal__cart">
-          <div className="modal__quantity">
-            <button
-              type="button"
-              className="modal__quantity-btn modal__quantity-btn_minus"
-              onClick={handleDecrement}></button>
-            <input type="number" className="modal__quantity-count" value={quantity} readOnly />
-            <button
-              type="button"
-              className="modal__quantity-btn modal__quantity-btn_plus"
-              onClick={handleIncrement}></button>
-          </div>
-          <button type="button" className="modal__cart-add" onClick={handleAddToCart}>
+        <div className={style.cart}>
+          <Quantity
+            value={quantity}
+            handleDecrement={handleDecrement}
+            handleIncrement={handleIncrement}
+          />
+          <button type="button" className={style.cartAdd} onClick={handleAddToCart}>
             Добавить
           </button>
         </div>
       </div>
-      <button type="button" className="modal__close" onClick={onRequestClose} />
+      <button type="button" className={style.close} onClick={onRequestClose} />
     </ReactModal>
   );
 };

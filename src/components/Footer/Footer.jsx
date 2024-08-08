@@ -1,4 +1,4 @@
-import './footer.scss';
+import style from './Footer.module.scss';
 import { useGoods } from '@/context/ProductContext';
 import { MenuList } from '@/components/MenuList/MenuList';
 
@@ -10,33 +10,33 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="footer">
-      <div className="container footer__container">
-        <a className="footer__logo-link">
-          <img src="image/logo.svg" alt="Логотип Cup Time" className="footer__logo" />
+    <footer className={style.footer}>
+      <div className={`container ${style.container}`}>
+        <a className={style.logoLink}>
+          <img src="image/logo.svg" alt="Логотип Cup Time" className={style.logo} />
         </a>
-        <div className="footer__nav">
-          <MenuList classNameBase="footer" onClick={scrollToGoods} />
+        <div className={style.nav}>
+          <MenuList className={style.menu} onClick={scrollToGoods} />
         </div>
-        <div className="footer__info">
-          <p className="footer__copyright">©CUPTIME, 2024</p>
-          <p className="footer__description">Проект сделан в учебных целях</p>
-          <ul className="footer__developers">
-            <li className="footer__developer">
+        <div className={style.info}>
+          <p className={style.copyright}>©CUPTIME, 2024</p>
+          <p className={style.description}>Проект сделан в учебных целях</p>
+          <ul className={style.developers}>
+            <li className={style.developer}>
               Designer:
               <a
                 href="https://t.me/Mrshmallowww"
-                className="footer__developer-link"
+                className={style.developerLink}
                 target="_blank"
                 rel="noreferrer">
                 Anastasia Ilina
               </a>
             </li>
-            <li className="footer__developer">
+            <li className={style.developer}>
               Developer:
               <a
                 href="https://t.me/Rootdiv"
-                className="footer__developer-link"
+                className={style.developerLink}
                 target="_blank"
                 rel="noreferrer">
                 Vladimir
@@ -44,40 +44,36 @@ export const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="footer__contacts">
-          <a href="mailto:CUPTIME@gmail.com" className="footer__email">
+        <div className={style.contacts}>
+          <a href="mailto:CUPTIME@gmail.com" className={style.email}>
             CUPTIME@gmail.com
           </a>
-          <ul className="footer__social">
-            <li className="footer__social-item">
+          <ul className={style.social}>
+            <li className={style.socialItem}>
               <a
                 href="#"
-                className="footer__social-link"
+                className={style.socialLink}
                 target="_blank"
                 aria-label="Канал в Телеграмм">
-                <svg width="32" height="30" className="footer__social-icon">
+                <svg width="32" height="30" className={style.socialIcon}>
                   <use href="image/sprite.svg#tg" />
                 </svg>
               </a>
             </li>
-            <li className="footer__social-item">
-              <a
-                href="#"
-                className="footer__social-link"
-                target="_blank"
-                aria-label="Канал в YouTube">
-                <svg width="32" height="30" className="footer__social-icon">
+            <li className={style.socialItem}>
+              <a href="#" className={style.socialLink} target="_blank" aria-label="Канал в YouTube">
+                <svg width="32" height="30" className={style.socialIcon}>
                   <use href="image/sprite.svg#yt" />
                 </svg>
               </a>
             </li>
-            <li className="footer__social-item">
+            <li className={style.socialItem}>
               <a
                 href="#"
-                className="footer__social-link"
+                className={style.socialLink}
                 target="_blank"
                 aria-label="Группа во ВКонтакте">
-                <svg width="32" height="30" className="footer__social-icon">
+                <svg width="32" height="30" className={style.socialIcon}>
                   <use href="image/sprite.svg#vk" />
                 </svg>
               </a>

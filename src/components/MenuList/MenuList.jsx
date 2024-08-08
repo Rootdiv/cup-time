@@ -1,8 +1,9 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useGoods } from '@/context/ProductContext';
+import style from './MenuList.module.scss';
 import clsx from 'clsx';
 
-export const MenuList = ({ classNameBase, onClick }) => {
+export const MenuList = ({ className, onClick }) => {
   const location = useLocation();
 
   const { categories } = useGoods();
@@ -13,12 +14,12 @@ export const MenuList = ({ classNameBase, onClick }) => {
   };
 
   return (
-    <ul className={`${classNameBase}__menu`}>
+    <ul className={clsx(style.menu, className)}>
       {Object.entries(categories).map(([key, value]) => (
-        <li key={key} className={`${classNameBase}__menu-item`}>
+        <li key={key} className={style.menuItem}>
           <Link
             to={`/products?category=${key}`}
-            className={clsx(`${classNameBase}__menu-link`, { active: setActiveClass(key) })}
+            className={clsx(style.menuLink, { [style.active]: setActiveClass(key) })}
             onClick={onClick}>
             {value}
           </Link>
